@@ -1,4 +1,4 @@
-# Spotify Database Analysis 2025
+# Spotify Catalog Insights 2025
 
 Explored Spotify’s July 2025 API dataset of tracks, albums, and artists to reveal insights on trends in the world's largest digital music streaming platform. Combined SQL, Python, and data visualization to highlight patterns and historical changes in the music industry.
 
@@ -118,8 +118,8 @@ The notebook explores several key questions:
 
 **1. Clone the repository**
 ```bash
-git clone https://github.com/PKTrance/spotify-database-analysis-2025.git
-cd spotify-database-analysis-2025
+git clone https://github.com/PKTrance/Spotify-Catalog-Insights.git
+cd Spotify-Catalog-Insights
 ```
 
 **2. Install dependencies**
