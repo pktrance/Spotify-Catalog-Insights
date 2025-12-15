@@ -2,13 +2,9 @@
 
 Analyzed 2M+ catalog records from Spotify's platform to uncover strategic patterns in label performance, artist concentration, and album composition. This project demonstrates end-to-end data analysis using Python and SQL to derive actionable insights for the music industry.
 
----
-
 ## Project Overview
 
 This project performs comprehensive exploratory data analysis on Spotify's catalog data to understand competitive dynamics in digital music streaming. The analysis focuses on strategic business insights that challenge conventional assumptions about the music industry.
-
----
 
 ## Dataset Structure
 
@@ -160,8 +156,6 @@ The notebook explores several key questions:
 - Studies tracking artist trajectory and tier mobility over time
 - Genre-specific analysis to identify whether patterns hold across different music categories
 - Comparative analysis across streaming platforms to identify platform-specific vs. universal dynamics
-  
----
 
 ## Visualizations
 
@@ -194,8 +188,6 @@ showing optimal performance.*
 <br>![Explicit Content](figures/explicit_pie.png)
 <br>*12.7% of catalog is explicit content, with strategy varying by genre and audience.*
 
----
-
 ## Technical Stack
 
 ### Languages & Tools:
@@ -218,8 +210,6 @@ showing optimal performance.*
 - `.env` file for credentials management (not committed to repo)
 
 - Git for version control
-
----
 
 ## Setup Instructions
 
@@ -261,13 +251,9 @@ jupyter notebook spotify-database-analysis-2025.ipynb
 - `requirements.txt`
 - `figures/`
 
----
-
 ## Acknowledgments
 
 Special thanks to [MusicMoveArr](https://github.com/MusicMoveArr/Datasets) for sourcing and sharing the Spotify datasets used in this project.
-
----
 
 ## Contact
 
