@@ -18,8 +18,6 @@ Key fields:
 
 - **Purpose:** Track-level attributes including duration and content ratings
 
-- **Records:** 2,128,954 tracks
-
 ### `spotify_album`
 
 Key fields:
@@ -28,8 +26,6 @@ Key fields:
 
 - **Purpose:** Album-level success metrics and metadata
 
-- **Records:** 252,790 albums across 27,635 labels
-
 ### `spotify_artist`
 
 Key fields:
@@ -37,8 +33,6 @@ Key fields:
 - **Key fields:** `popularity`, `totalfollowers`, `genres`, `lastsynctime`
 
 - **Purpose:** Artist-level popularity and audience metrics
-
-- **Records:** 15,872 artists
 
 ### Data Integrity
 
@@ -51,23 +45,28 @@ Key fields:
 
 ## Analysis Approach
 
-This project combines SQL and Python to analyze strategic patterns across three key dimensions:
+This project combines SQL and Python to test three strategic hypotheses about the music streaming industry:
 
-**1. Label Performance** – Tested whether catalog size correlates with success by grouping labels 
-into size categories and comparing average album popularity. Found that mid-size independent labels 
-(50-199 albums) achieve 59% higher performance than major labels, suggesting strategic curation 
-outperforms volume.
+**1. Label Performance Hypothesis**  
+*Does larger catalog size correlate with higher success?*
 
-**2. Artist Concentration** – Examined success distribution by grouping artists into popularity 
-tiers and measuring engagement per tier. Revealed that top 5% of artists (60+ popularity) achieve 
-4.3x higher per-album engagement, indicating platform winner-takes-all dynamics.
+Grouped labels by catalog size (Small: 1-49, Mid: 50-199, Large: 200-499, Major: 500+ albums) and compared average album popularity across categories. Used SQL CTEs to calculate label sizes, then joined with album performance data to identify patterns.
 
-**3. Album Composition** – Analyzed relationship between track count and popularity to identify 
-optimal album length. Found non-linear pattern with 13-16 track albums performing best, contradicting 
-simple "shorter is better" hypothesis.
+**2. Artist Concentration Hypothesis**  
+*How concentrated is success on streaming platforms?*
 
-**Technical Implementation:** Used SQL (PostgreSQL) to merge normalized tables and extract data, 
-then Python (Pandas) for categorical grouping, aggregation, and visualization. 
+Segmented artists into popularity tiers (Niche <20, Emerging 20-39, Mid-Tier 40-59, Popular 60-79, Superstars 80+) and measured per-album engagement differentials. Calculated weighted averages to compare top-tier vs. bottom-tier performance.
+
+**3. Album Composition Hypothesis**  
+*Is there an optimal album length for maximizing popularity?*
+
+Categorized albums by track count (EP ≤8, Standard 9-12, Long 13-16, Very Long 17-20, Deluxe 20+) and analyzed popularity distributions. Examined standard deviations to assess within-group variance and pattern consistency.
+
+**Technical Implementation:**  
+- SQL (PostgreSQL) for multi-table joins, data extraction, and categorical filtering
+- Python (Pandas) for aggregation, statistical calculations, and derived metrics
+- Matplotlib/Seaborn for visualization
+- Filtered to `albumtype = 'album'` throughout for methodological consistency
 
 For detailed SQL queries, data transformations, and visualization code, [see the Jupyter notebook](https://github.com/pktrance/Spotify-Catalog-Insights/blob/main/spotify-database-analysis-2025.ipynb).
 
