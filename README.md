@@ -1,120 +1,183 @@
 # Spotify Catalog Insights 2025
 
-Explored Spotify’s July 2025 API dataset of tracks, albums, and artists to reveal insights on trends in the world's largest digital music streaming platform. Combined SQL, Python, and data visualization to highlight patterns and historical changes in the music industry.
+Analyzed 2M+ catalog records from Spotify's platform to uncover strategic patterns in label performance, artist concentration, and album composition. This project demonstrates end-to-end data analysis using Python and SQL to derive actionable insights for the music industry.
 
 ---
 
-## 📊 Project Overview
+## Project Overview
 
-The goal of this project was to perform end-to-end exploratory data analysis (EDA) on Spotify’s dataset to understand how various factors influence popularity on the platform.
-
-Key highlights include:
-
-- Cleaning and preparing millions of rows of track, album, and artist data.
-
-- Visualizing music trends over time and across attributes.
-
-- Demonstrating practical skills in SQL, Python (`pandas`, `seaborn`, `matplotlib`), and data storytelling.
+This project performs comprehensive exploratory data analysis on Spotify's catalog data to understand competitive dynamics in digital music streaming. The analysis focuses on strategic business insights that challenge conventional assumptions about the music industry.
 
 ---
 
-## 📂 Datasets
+## Dataset Structure
 
-The data was sourced from Spotify’s Web API (July 2025) and stored in PostgreSQL.
-It consists of three core tables:
+The data was sourced from Spotify's Web API (July 2025) and consists of three core tables stored in PostgreSQL:
 
 ### `spotify_track`
 
 Key fields:
 
-- `durationms` – track length in milliseconds
+- **Key fields:** `trackid`, `albumid`, `name`, `durationms`, `explicit`
 
-- `explicit` – whether a track is flagged as explicit
+- **Purpose:** Track-level attributes including duration and content ratings
 
-- `trackid`, `albumid`, `name` – identifiers and metadata
-
-Useful for analyzing song length distribution, explicit vs. non-explicit proportions, and word trends in track names.
+- **Records:** 2,128,954 tracks
 
 ### `spotify_album`
 
 Key fields:
 
-- `popularity` – Spotify’s popularity score for albums
+- **Key fields:** `popularity`, `totaltracks`, `name`, `label`, `releasedate`
 
-- `totaltracks` – number of tracks per album
+- **Purpose:** Album-level success metrics and metadata
 
-- `label` – record label associated with the album
-
-- `releasedate` – release timing (used for historical trend analysis)
-
-Enables exploration of album-level success factors, including label influence, release timing, and track counts.
+- **Records:** 252,790 albums across 27,635 labels
 
 ### `spotify_artist`
 
 Key fields:
 
-- `popularity` – popularity score of artists
+- **Key fields:** `popularity`, `totalfollowers`, `genres`, `lastsynctime`
 
-- `totalfollowers` – number of followers per artist
+- **Purpose:** Artist-level popularity and audience metrics
 
-- `genres` – genre information for segmentation
+- **Records:** 15,872 artists
 
-- `lastsynctime` – timestamp of the last API sync
+### Data Integrity
 
-Provides artist-level insights and complements album and track analysis.
+- No missing values in critical fields
+
+- Minimal duplicates after initial data quality checks
 
 > [!NOTE]
-> The included sample CSV datasets each containing 10,000 rows are included for testing and demonstration. To reproduce the full analysis, [download the complete SQL dumps from here](https://github.com/MusicMoveArr/Datasets) and restore it locally.
+> The included sample CSV datasets each containing 10,000 rows are included for testing and demonstration. To reproduce the full analysis, [download the complete SQL dumps here](https://github.com/MusicMoveArr/Datasets) and restore it locally.
 
 ---
 
-## 🔑 Key Analyses & Visualizations
+## Analysis Approach
+
+This project combines SQL and Python to analyze strategic patterns across three key dimensions:
+
+**1. Label Performance** – Tested whether catalog size correlates with success by grouping labels 
+into size categories and comparing average album popularity. Found that mid-size independent labels 
+(50-199 albums) achieve 51% higher performance than major labels, suggesting strategic curation 
+outperforms volume.
+
+**2. Artist Concentration** – Examined success distribution by grouping artists into popularity 
+tiers and measuring engagement per tier. Revealed that top 5% of artists (60+ popularity) achieve 
+4x higher per-album engagement, indicating platform winner-takes-all dynamics.
+
+**3. Album Composition** – Analyzed relationship between track count and popularity to identify 
+optimal album length. Found non-linear pattern with 13-16 track albums performing best, contradicting 
+simple "shorter is better" hypothesis.
+
+**Technical Implementation:** Used SQL (PostgreSQL) to merge normalized tables and extract data, 
+then Python (Pandas) for categorical grouping, aggregation, and visualization. 
+
+For detailed SQL queries, data transformations, and visualization code, [see the Jupyter notebook](https://github.com/pktrance/Spotify-Catalog-Insights/blob/main/spotify-database-analysis-2025.ipynb).
+
+---
+
+## Key Findings
 
 The notebook explores several key questions:
 
-**1. Track Length Distribution**
+**1. Mid-Size Label Advantage**
 
-- Filtered songs to focus on those under 15 minutes (to reflect common listening ranges).
+- Mid-size independent labels (50-199 albums) achieve 51% higher average album popularity compared to major labels (500+ albums)
 
-- Revealed most tracks peak just under ~200 seconds.
+- Demonstrates that focused artist development and niche specialization outperform volume-based catalog strategies
 
-**2. Explicit vs. Non-Explicit Content**
+- Challenges the assumption that bigger labels automatically win
+  
+**2. Platform Concentration Dynamics**
 
-- Pie chart showed explicit tracks make up 12.7% of the dataset.
+- Top 5% of artists (those with 60+ popularity scores) achieve 4.3x higher per-album engagement than the remaining 95% of artists
 
-**Trends in Track Names**
+- Only 860 artists out of 15,800+ drive disproportionate platform success
 
-- Word cloud analysis of common words in track titles (e.g., “love”), excluding common modifiers like "remix" or "remastered".
+- Reveals winner-takes-all dynamics where established artists compound their advantages
 
-**3. Album Popularity Trends**
+**3. Album Composition Patterns**
 
-- Box plot visualized the distribution of popularity scores across albums.
+- Albums with 13-16 tracks show highest popularity (13.44 avg)
 
-**4. Track Count vs. Popularity**
+- Non-linear relationship contradicts simple "shorter is better" hypothesis
 
-- Scatter plot revealed that albums between 10 to 20 tracks are the most popular.
+- EP albums (≤8 tracks) significantly underperform, possibly due to promotional nature
+  
+**Technical Highlights**
 
-**5. Label Performance**
+- Processed and merged 2M+ catalog records across multiple normalized tables
 
-- Identified top record labels by their average album popularity.
+- Combined SQL (PostgreSQL) for data extraction and Python (Pandas) for complex analysis
 
----
+- Created multi-dimensional aggregations to reveal patterns across label size, artist tiers, and album composition
 
-## 🛠️ Tech Stack
-
-- **Languages:** Python (pandas, numpy, seaborn, matplotlib), SQL
-
-- **Database:** PostgreSQL
-
-- **APIs:** Spotify Web API (data source)
-
-- **Visualization:** Matplotlib, Seaborn, WordCloud
-
-- **Secrets Management:** `.env` file (for PostGreSQL access credentials)
+- Built visualizations to communicate findings to non-technical stakeholders
 
 ---
 
-## ⚙️ Setup Instructions
+## Visualizations
+
+The project includes several key visualizations:
+
+**1. Label Performance Analysis**
+<br>![Label Size vs Performance](figures/label_performance.png)
+<br>*Mid-size independent labels (50-199 albums) achieve 51% higher average album popularity 
+than major labels, demonstrating competitive advantage through focused curation.*
+
+**2. Artist Concentration Dynamics**
+<br>![Artist Distribution](figures/artist_concentration.png)
+<br>*Platform shows significant success concentration: top 5% of artists achieve 4x higher 
+per-album engagement despite representing small fraction of catalog.*
+
+**3. Album Composition Patterns**
+<br>![Album Length Analysis](figures/album_length_scatter.png)
+<br>*Non-linear relationship between track count and popularity, with 13-16 track albums 
+showing optimal performance.*
+
+**4. Track Duration Distribution**
+<br>![Track Duration](figures/duration_histogram.png)
+<br>*Majority of tracks concentrate around 180-210 seconds, aligning with playlist preferences.*
+
+**5. Album Popularity Distribution**
+<br>![Popularity Box Plot](figures/popularity_boxplot.png)
+<br>*Box plot reveals popularity score distribution and outlier identification.*
+
+**6. Content Strategy**
+<br>![Explicit Content](figures/explicit_pie.png)
+<br>*12.7% of catalog is explicit content, with strategy varying by genre and audience.*
+
+---
+
+## Technical Stack
+
+### Languages & Tools:
+
+- **Python 3.11+:** Primary analysis environment
+  - `pandas` – data manipulation and aggregation
+  - `numpy` – numerical operations
+  - `matplotlib` & `seaborn` – visualization
+  - `psycopg2` – PostgreSQL connectivity
+
+- **SQL (PostgreSQL 15+):** Data storage and extraction
+  - Complex JOINs across normalized tables
+  - Window functions for ranking and aggregation
+  - CTEs for multi-step queries
+
+### Environment:
+
+- Jupyter Notebook for exploratory analysis and visualization
+  
+- `.env` file for credentials management (not committed to repo)
+
+- Git for version control
+
+---
+
+## Setup Instructions
 
 **1. Clone the repository**
 ```bash
@@ -145,7 +208,7 @@ jupyter notebook spotify-database-analysis-2025.ipynb
 
 ---
 
-## 📁 Files
+## Files
 - `spotify-database-analysis-2025.ipynb`
 - `spotify_track_sample.csv`
 - `spotify_album_sample.csv`
@@ -156,12 +219,12 @@ jupyter notebook spotify-database-analysis-2025.ipynb
 
 ---
 
-## 🙌 Acknowledgments
+## Acknowledgments
 
 Special thanks to [MusicMoveArr](https://github.com/MusicMoveArr/Datasets) for sourcing and sharing the Spotify datasets used in this project.
 
 ---
 
-## ✉️ Contact
+## Contact
 
 Patrick Tran — `https://www.linkedin.com/in/patricktran22/` — patricktran@g.ucla.edu
