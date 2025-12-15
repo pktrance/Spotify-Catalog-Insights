@@ -240,8 +240,6 @@ DB_PORT=5432
 jupyter notebook spotify-database-analysis-2025.ipynb
 ```
 
----
-
 ## Files
 - `spotify-database-analysis-2025.ipynb`
 - `spotify_track_sample.csv`
