@@ -75,60 +75,38 @@ For detailed SQL queries, data transformations, and visualization code, [see the
 
 ### 1. Mid-Size Label Advantage (Primary Finding)
 
-Mid-size independent labels (50-199 albums) achieve **59% higher average album popularity** 
-(14.49 avg) compared to major labels (9.11 avg), despite significantly smaller catalogs. 
-This suggests that focused artist development and niche genre specialization provide 
-competitive advantages over volume-based catalog strategies.
+Mid-size independent labels (50-199 albums) achieve **59% higher average album popularity** (14.49 avg) compared to major labels (9.11 avg), despite significantly smaller catalogs. This suggests that focused artist development and niche genre specialization provide competitive advantages over volume-based catalog strategies.
 
-**Strategic Implication:** Independent labels should prioritize depth over breadth—
-concentrating resources on curating smaller rosters of artists within specific genres 
-rather than attempting to compete with major labels through catalog expansion.
+**Strategic Implication:** Independent labels should prioritize depth over breadth—concentrating resources on curating smaller rosters of artists within specific genres rather than attempting to compete with major labels through catalog expansion.
 
-**Technical approach:** Grouped labels by catalog size and compared average album 
-popularity across categories using SQL aggregations and Python analysis.
+**Technical approach:** Grouped labels by catalog size and compared average album popularity across categories using SQL aggregations and Python analysis.
 
 ### 2. Platform Concentration Dynamics (Secondary Finding)
 
-The top 5% of artists (860 with 60+ popularity scores) achieve **4.3x higher per-album 
-engagement** (33.5 avg popularity) compared to the remaining 95% (7.8 avg). This 
-demonstrates the compounding advantage of established audience bases and algorithmic 
-reinforcement.
+The top 5% of artists (860 with 60+ popularity scores) achieve **4.3x higher per-album engagement** (33.5 avg popularity) compared to the remaining 95% (7.8 avg). This demonstrates the compounding advantage of established audience bases and algorithmic reinforcement.
 
-**Strategic Implication:** Emerging artists should focus on building dedicated niche 
-audiences rather than pursuing broad mainstream appeal, as breakthrough success creates 
-self-reinforcing momentum through platform algorithms and listener behavior.
+**Strategic Implication:** Emerging artists should focus on building dedicated niche audiences rather than pursuing broad mainstream appeal, as breakthrough success creates self-reinforcing momentum through platform algorithms and listener behavior.
 
-**Technical approach:** Grouped artists into popularity tiers and measured engagement 
-differentials, controlling for catalog size and release type.
+**Technical approach:** Grouped artists into popularity tiers and measured engagement differentials, controlling for catalog size and release type.
 
 ### 3. Album Composition Patterns
 
-Albums with 13-16 tracks show highest popularity (13.74 avg), revealing a non-linear 
-relationship that contradicts the simple "shorter is better" hypothesis. EP albums 
-(≤8 tracks) significantly underperform (6.46 avg), possibly due to promotional nature 
-or emerging artist prevalence.
+Albums with 13-16 tracks show highest popularity (13.74 avg), revealing a non-linear relationship that contradicts the simple "shorter is better" hypothesis. EP albums (≤8 tracks) significantly underperform (6.46 avg), possibly due to promotional nature or emerging artist prevalence.
 
-**Observation:** High standard deviations across all categories indicate substantial 
-within-group variation, suggesting album length is moderated by artist tier and genre 
-conventions rather than being a universal success factor.
+**Observation:** High standard deviations across all categories indicate substantial within-group variation, suggesting album length is moderated by artist tier and genre conventions rather than being a universal success factor.
 
 ## Technical Highlights
 
 - Processed and merged **2M+ catalog records** across multiple normalized tables
-- Combined **SQL (PostgreSQL)** for data extraction and joins with **Python (Pandas)** 
-  for categorical grouping, aggregation, and visualization
-- Created multi-dimensional aggregations to reveal patterns across label size, artist 
-  tiers, and album composition
-- Filtered analysis to albums only (excluding singles/compilations) for methodological 
-  rigor
+- Combined **SQL (PostgreSQL)** for data extraction and joins with **Python (Pandas)** for categorical grouping, aggregation, and visualization
+- Created multi-dimensional aggregations to reveal patterns across label size, artist tiers, and album composition
+- Filtered analysis to albums only (excluding singles/compilations) for methodological rigor
 - Built visualizations to communicate findings to non-technical stakeholders
 
 ## Strategic Recommendations
 
 > [!WARNING]
-> These recommendations extrapolate from observed patterns to potential business 
-> applications. Implementation would require validation through additional research 
-> and domain-specific context.
+> These recommendations are based on trends observed in the data and interpret what they could imply for business strategy. Implementation would require validation through additional research.
 
 ### For Independent Labels
 
