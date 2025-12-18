@@ -92,7 +92,7 @@ The top 5% of artists (860 with 60+ popularity scores) achieve **4.3x higher per
 
 Albums with 13-16 tracks show highest popularity (13.74 avg), revealing a non-linear relationship that contradicts the simple "shorter is better" hypothesis. EP albums (≤8 tracks) significantly underperform (6.46 avg), possibly due to promotional nature or emerging artist prevalence.
 
-**Observation:** High standard deviations across all categories indicate substantial within-group variation, suggesting album length is moderated by artist tier and genre conventions rather than being a universal success factor.
+**Observation:** High standard deviations across all categories indicate substantial within-group variation, suggesting album length is moderated by artist tier and individual track popularity rather than being a universal success factor.
 
 ## Technical Highlights
 
