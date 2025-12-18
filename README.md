@@ -55,7 +55,7 @@ Grouped labels by catalog size (Small: 1-49, Mid: 50-199, Large: 200-499, Major:
 **2. Artist Concentration Hypothesis**  
 *How concentrated is success on streaming platforms?*
 
-Segmented artists into popularity tiers (Niche <20, Emerging 20-39, Mid-Tier 40-59, Popular 60-79, Superstars 80+) and measured per-album engagement differentials. Calculated weighted averages to compare top-tier vs. bottom-tier performance.
+Segmented artists into five popularity tiers (Niche <20, Emerging 20-39, Mid-Tier 40-59, Popular 60-79, Superstars 80+) based on their artist popularity scores. Calculated average album popularity for each tier to measure per-album engagement levels. Compared the top 5% of artists (those with popularity scores of 60 or higher) against the remaining 95% to quantify the degree of success concentration on the platform.
 
 **3. Album Composition Hypothesis**  
 *Is there an optimal album length for maximizing popularity?*
