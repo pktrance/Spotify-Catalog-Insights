@@ -74,7 +74,7 @@ For detailed SQL queries, data transformations, and visualization code, [see the
 
 ### 1. Mid-Size Label Advantage (Primary Finding)
 
-Mid-size independent labels (50-199 albums) achieve **59% higher average album popularity** (14.49 avg) compared to major labels (9.11 avg), despite significantly smaller catalogs. This suggests that focused artist development and niche genre specialization provide competitive advantages over volume-based catalog strategies.
+Mid-size independent labels (50-199 albums) achieve **59% higher average album popularity** (14.49 avg) compared to major labels (9.11 avg), despite significantly smaller catalogs. This suggests that focused artist development and catalog curation provide competitive advantages over volume-based catalog strategies.
 
 **Strategic Implication:** Independent labels should prioritize depth over breadth—concentrating resources on curating smaller rosters of artists within specific genres rather than attempting to compete with major labels through catalog expansion.
 
